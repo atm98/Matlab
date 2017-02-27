@@ -1,0 +1,27 @@
+m=input('Enter Modulating index');
+Am=6;
+Ac=Am/m;
+Fm=50;
+Tm=1/Fm;
+t=0:Tm/1000:6*Tm;
+Ym=Am*sin(2*pi*Fm*t);
+figure(1)
+subplot(3,1,1); 
+plot(t,Ym), grid on;
+title ( 'Modulating Signal');
+xlabel ('time');
+ylabel (' Amplitude');
+Fc=500;
+Tc=1/Fc;
+Yc=Ac*sin(2*pi*Fc*t);
+subplot(3,1,2);
+plot(t,Yc), grid on;
+title ('Carrier Signal');
+xlabel ('time');
+ylabel ('Amplitude');
+y=Ac*(1+m*sin(2*pi*Fm*t)).*sin(2*pi*Fc*t);
+subplot(3,1,3); 
+plot(t,y), grid on;
+title ( 'Modulating Signal');
+xlabel ('time');
+ylabel (' Amplitude');
